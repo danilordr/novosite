@@ -1,0 +1,81 @@
+body {
+  margin: 0px;
+  background-color: whitesmoke;
+}
+
+.banner-promocao {
+  border-radius: 10px;
+  box-shadow: 0px 4px 10px 0 black;
+  display: flex;
+  justify-content: center;
+}
+
+.banner {
+  width: 90%;
+  height: 330px;
+  border: solid 1px black;
+  position: relative;
+}
+
+.arrow-right {
+  cursor: pointer;
+  width: 1.5%;
+  height: 40px;
+  opacity: 50%;
+  margin: 0% 1%;
+}
+
+.arrow-left {
+  cursor: pointer;
+  opacity: 50%;
+  transform: rotate(180deg);
+  width: 1.5%;
+  height: 40px;
+  margin: 0% 1%;
+}
+
+.banner-promocao {
+  margin: 2% 1% -2% 1%;
+  padding: 2%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.botoes-banner {
+  display: flex;
+  justify-content: right;
+  padding-right: 7%;
+  padding-bottom: 10px;
+}
+
+.titulo-primeiro-bloco-produtos {
+  border-radius: 3px;
+  box-shadow: 0px 4px 10px 0 black;
+  letter-spacing: 1px;
+  text-align: center;
+  font-size: 1.6em;
+  text-decoration: underline;
+  font-weight: bold;
+  background-color: rgb(35, 149, 255);
+  padding: 0.5% 0%;
+  margin: 2% 25% 2% 25%;
+}
+
+.primeiro-bloco-opcoes-produtos {
+  margin: 1% 2%;
+  display: flex;
+  justify-content: space-around;
+}
+
+.caixa-produto-promocao {
+  border-radius: 5px;
+  cursor: pointer;
+  padding: 4px;
+  max-width: 200px;
+  height: 300px;
+  box-sizing: content-box;
+  box-shadow: 0px 4px 10px 0 black;
+  display: inline-block;
+  border: solid 1px black;
+}

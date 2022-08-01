@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<!-- Include Head -->
+<%- include('partials/head', {title: 'Início'}) %>
+<body>
+	<!-- Header -->
+	<%- include('partials/headerNavbar') %>
+	<!-- /Header -->
+	
+	<!-- Banner -->
+    <div class="banner-promocao">
+        <img src="/images/home/arrow-icon.png" alt="" class="arrow-left">
+        <img src="/images/home/banner-promocao.jpg" alt="" class="banner">
+        <img src="/images/home/arrow-icon.png" alt="" class="arrow-right">
+    </div>
+    <div class="botoes-banner">
+        <input type="radio" name="pagina-banner" id="">
+        <input type="radio" name="pagina-banner" id="">
+        <input type="radio" name="pagina-banner" id="">
+        <input type="radio" name="pagina-banner" id="">
+        <input type="radio" name="pagina-banner" id="">
+    </div>
+	<!-- /Banner -->
+    <p class="titulo-primeiro-bloco-produtos">Conheça mais do nossos produtos em promoção</p>
+	<!-- primeiro bloco produtos -->
+<div class="primeiro-bloco-opcoes-produtos">
+        <!-- Caixa de produto primeiro bloco -->
+        <div class="caixa-produto-promocao">
+            <a href="/products/detail/1"></a>
+            <img class="imagem-produto-bloco1" src="/public/images/products/cama1.png" alt="">
+            <div class="descricao-produto-primeiro-bloco">
+                <p>Sofá retratil Living de dois lugares</p>
+                <span class="preco-produto-antes">de R$ 1.499,00</span>
+                <span class="preco-produto-depois">por R$  809,46</span>
+                <img class="carrinho-icon-add" src="/images/home/carrinho-icon-add.png" alt="">
+            </div>
+        </div>
+        <!-- Caixa de produto primeiro bloco -->
+        <div class="caixa-produto-promocao">
+            <a href="/products/detail/2"></a>
+            <img class="imagem-produto-bloco1" src="/images/produtos/camas/produto2.png" alt="">
+            <div class="descricao-produto-primeiro-bloco">
+                <p>Cama de casal</p>
+                <span class="preco-produto-antes">de R$ 1.299,00</span>
+                <span class="preco-produto-depois">por R$ 909,30</span>
+                <img class="carrinho-icon-add" src="/images/home/carrinho-icon-add.png" alt="">
+            </div>
+        </div>
+        <!-- Caixa de produto primeiro bloco -->
+        <div class="caixa-produto-promocao">
+            <a href="/products/detail/3"></a>
+            <img class="imagem-produto-bloco1" src="/images/produtos/outros/produto3.png" alt="">
+            <div class="descricao-produto-primeiro-bloco">
+                <p>Mesa para área externa</p>
+                <span class="preco-produto-antes">de R$ 997,00</span>
+                <span class="preco-produto-depois">por R$ 489,90</span>
+                <img class="carrinho-icon-add" src="/images/home/carrinho-icon-add.png" alt="">
+            </div>
+        </div>
+        <!-- Caixa de produto primeiro bloco -->
+        <div class="caixa-produto-promocao">
+            <a href="/products/detail/4"></a>
+            <img class="imagem-produto-bloco1" src="/images/produtos/celulares/produto4.png" alt="">
+            <div class="descricao-produto-primeiro-bloco">
+                <p>Motorola G270 Mega Plus</p>
+                <span class="preco-produto-antes">de R$ 3.499,00</span>
+                <span class="preco-produto-depois">por R$ 1.819,48</span>
+                <img class="carrinho-icon-add" src="/images/home/carrinho-icon-add.png" alt="">
+            </div>
+        </div>
+        <!-- Caixa de produto primeiro bloco -->
+        <div class="caixa-produto-promocao">
+            <a href="/products/detail/5"></a>
+            <img class="imagem-produto-bloco1" src="/images/produtos/guardaRoupas/produto5.png" alt="">
+            <div class="descricao-produto-primeiro-bloco">
+                <p>Armário Aurora - Wood e Preto</p>
+                <span class="preco-produto-antes">de R$ 1.299,00</span>
+                <span class="preco-produto-depois">por R$ 857,34</span>
+                <img class="carrinho-icon-add" src="/images/home/carrinho-icon-add.png" alt="">
+            </div>
+        </div>
+    </div>
+	<div class="container products-wrapper">
+		<div class="row">
+			<div class="col-12">
+				<h2 class="products-title">Baseado em sua última visita</h2>
+			</div>
+			<!-- Show the "visited" products -->
+			<% produtosUltimoAcesso.forEach(product => { %>
+				<div class="caixa-produto-promocao"></div>
+					<section class="product-box">
+						<a href="/products/detail/<%= product.id %>">
+							<figure class="product-box_image">
+								<img src="/images/products/<%= product.image %>" alt="imagem do produto">
+							</figure>
+							<article class="product-box_data">
+								<h2>$<%= toThousand(product.price) %></h2>
+								<span><%= product.discount %>% OFF</span>
+								<p><%= product.name %></p>
+								<i class="fas fa-truck"></i>
+							</article>
+						</a>
+					</section>
+				</div>
+			<% }) %>
+		</div>
+	</div>
+	<!-- /ultima visita -->
+
+	<!-- Ofertas -->
+	<div class="container products-wrapper">
+		<div class="row">
+			<div class="col-12">
+				<h2 class="products-title">Ofertas</h2>
+			</div>
+			<!-- Show the "in-sale" products -->
+			<% produtosComDesconto.forEach(product => { %>
+				<div class="col-12 col-sm-6 col-lg-3">
+					<section class="product-box">
+						<a href="/products/detail/<%= product.id %>">
+							<figure class="product-box_image">
+								<img src="/images/products/<%= product.image %>" alt="imagem do produto">
+							</figure>
+							<article class="product-box_data">
+								<h2>$<%= product.price %></h2>
+								<span><%= product.discount %>% OFF</span>
+								<p><%= product.name %></p>
+								<i class="fas fa-truck"></i>
+							</article>
+						</a>
+					</section>
+				</div>
+			<% }) %>
+		</div>
+	</div>
+	<!-- /Ofertas -->
+
+	<!-- footer -->
+	<%- include('partials/footer') %>
+	<!-- /footer -->
+</body>	
+</html>
+,<style>
+body {
+    margin: 0px;
+    background-color: whitesmoke;
+  }
+  
+  .banner-promocao {
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px 0 black;
+    display: flex;
+    justify-content: center;
+  }
+  
+  .banner {
+    width: 90%;
+    height: 330px;
+    border: solid 1px black;
+    position: relative;
+  }
+  
+  .arrow-right {
+    cursor: pointer;
+    width: 1.5%;
+    height: 40px;
+    opacity: 50%;
+    margin: 0% 1%;
+  }
+  
+  .arrow-left {
+    cursor: pointer;
+    opacity: 50%;
+    transform: rotate(180deg);
+    width: 1.5%;
+    height: 40px;
+    margin: 0% 1%;
+  }
+  
+  .banner-promocao {
+    margin: 2% 1% -2% 1%;
+    padding: 2%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+  }
+  
+  .botoes-banner {
+    display: flex;
+    justify-content: right;
+    padding-right: 7%;
+    padding-bottom: 10px;
+  }
+  
+  .titulo-primeiro-bloco-produtos {
+    border-radius: 3px;
+    box-shadow: 0px 4px 10px 0 black;
+    letter-spacing: 1px;
+    text-align: center;
+    font-size: 1.6em;
+    text-decoration: underline;
+    font-weight: bold;
+    background-color: rgb(35, 149, 255);
+    padding: 0.5% 0%;
+    margin: 2% 25% 2% 25%;
+  }
+  
+  .primeiro-bloco-opcoes-produtos {
+    margin: 1% 2%;
+    display: flex;
+    justify-content: space-around;
+  }
+  
+  .caixa-produto-promocao {
+    border-radius: 5px;
+    cursor: pointer;
+    padding: 4px;
+    max-width: 200px;
+    height: 300px;
+    box-sizing: content-box;
+    box-shadow: 0px 4px 10px 0 black;
+    display: inline-block;
+    border: solid 1px black;
+  }
+</style>
